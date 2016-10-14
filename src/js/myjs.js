@@ -1,0 +1,2 @@
+/*! MinScript 1.0.1.0 CopyRight 2015-2016, Enyerber Franco ,Email:enyerverfranco@gmail.com ,enyerverfranco@outlook.com*/
+$(document).ready(function(e){var autor=new PERS('index.php?page=autor::buscar');autor.Consultar('#tbody');$('button[name=buscar]').click(function(e){var text=$('input[name=buscar]').val();autor.Consultar('#tbody',{tpers:'autor',text:text});});$('input[name=buscar]').keyup(function(e){if(e.which===13){autor.Consultar('#tbody',{"text":e.target.value});}});});

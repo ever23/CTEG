@@ -1,0 +1,1 @@
+<?php define('__MYSQL_HOME_','C:\\\\xampp2\\\\mysql\\\\bin');  define('USER','bd_teg'); define('PASS','1C3rKf8UxG08vOvO'); define('HOST','localhost'); define('DB','bd_teg');define('__PROTOCOLO__','http');

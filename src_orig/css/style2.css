@@ -1,0 +1,396 @@
+@charset "utf-8";
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	/*background-color: #42413C;*/
+	margin: 0;
+	padding: 0;
+	color: #000;
+	background-image:url(../../img/bg.gif);
+}
+/* ~~ Selectores de elemento/etiqueta ~~ */
+ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen del bloque contenedor. El margen inferior restante lo mantendrá separado de los elementos de que le sigan.  */
+	padding-right: 15px;
+	padding-left: 15px; /* la adición de relleno a los lados del elemento dentro de los bloques, en lugar de en los elementos del bloque propiamente dicho, elimina todas las matemáticas de modelo de cuadro. Un bloque anidado con relleno lateral también puede usarse como método alternativo. */
+}
+a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
+	border: none;
+}
+/* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
+a:link {
+	color:inherit;
+	text-decoration: underline; /* a no ser que aplique estilos a los vínculos para que tengan un aspecto muy exclusivo, es recomendable proporcionar subrayados para facilitar una identificación visual rápida */
+}
+a:visited {
+	color:inherit;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usuario que navegue mediante el teclado la misma experiencia de hover (paso por encima) que experimenta un usuario que emplea un ratón. */
+	text-decoration: none;
+}
+/* ~~ Este contenedor de anchura fija rodea a todas las demás bloques ~~ */
+.container {
+	width: 960px;
+	background-color: #FFFFFF;
+	margin: 0 auto; /* el valor automático de los lados, unido a la anchura, centra el diseño  */
+	-webkit-box-shadow: 1px 2px 11px 0px;
+	box-shadow: 1px 2px 11px 0px;
+	display:block;
+   height:auto;
+}
+/* ~~ No se asigna una anchura al encabezado. Se extenderá por toda la anchura del diseño. ~~ */
+header {
+	
+	background-image:url(../../img/bandera.png);
+	background-repeat:no-repeat;
+	background-size:100% 100px;
+	height:100px;
+	width:auto;
+	display:block;
+}
+.title{
+	font-family: Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+	color: rgba(35,34,34,1.00);
+}
+.logo_unefa
+{
+	background-image:url(../../img/logo_unefa.png);
+	float:right;
+	height:92px;
+	width:60px;
+	margin-right:30px;
+	display:block;
+	
+}
+/* ~~ Estas son las columnas para el diseño. ~~ 
+
+1) El relleno sólo se sitúa en la parte superior y/o inferior de los elementos del bloque. Los elementos situados dentro de estos bloques tienen relleno a los lados. Esto le ahorra las "matemáticas de modelo de cuadro". Recuerde que si añade relleno o borde lateral al bloque propiamente dicho, éste se añadirá a la anchura que defina para crear la anchura *total*. También puede optar por eliminar el relleno del elemento en el  bloque y colocar un segundo bloque dentro de éste sin anchura y el relleno necesario para el diseño deseado.
+
+2) No se asigna margen a las columnas, ya que todas ellas son flotantes. Si es preciso añadir un margen, evite colocarlo en el lado hacia el que se produce la flotación (por ejemplo: un margen derecho en un bloque configurado para flotar hacia la derecha). En muchas ocasiones, puede usarse relleno como alternativa. En el caso de bloques para los que deba incumplirse esta regla, deberá añadir una declaración "display:inline" a la regla del elemento del bloque para evitar un error que provoca que algunas versiones de Internet Explorer dupliquen el margen.
+
+3) Dado que las clases se pueden usar varias veces en un documento (y que también se pueden aplicar varias clases a un elemento), se ha asignado a las columnas nombres de clases en lugar de ID. Por ejemplo, dos bloques de barra lateral podrían apilarse si fuera necesario. Si lo prefiere, éstas pueden cambiarse a ID fácilmente, siempre y cuando las utilice una sola vez por documento.
+
+4) Si prefiere que la navegación esté a la izquierda en lugar de a la derecha, simplemente haga que estas columnas floten en dirección opuesta (todas a la izquierda en lugar de todas a la derecha) y éstas se representarán en orden inverso. No es necesario mover los bloques por el código fuente HTML.
+
+*/
+.sidebar1 {
+	float: right;
+	width: 180px;
+	background-color: #EADCAE;
+	padding-bottom: 10px;
+}
+.content {
+	padding: 10px 0px;
+	width: 960px;
+	
+	-webkit-box-shadow: 0px 0px;
+	box-shadow: 0px 0px;
+	background: rgba(255,255,255,1.00);
+	display:block;
+	
+}
+
+.menu
+{
+	height: 49px;
+	background-image: -webkit-linear-gradient(90deg,rgba(255,255,255,0.00) 0%,rgba(249,199,199,0.33) 6.74%,rgba(244,159,159,0.47) 17.62%,rgba(247,76,76,0.64) 34.72%,rgba(252,8,8,1.00) 61.14%,rgba(255,0,0,1.00) 100%);
+	background-image: -moz-linear-gradient(90deg,rgba(255,255,255,0.00) 0%,rgba(249,199,199,0.33) 6.74%,rgba(244,159,159,0.47) 17.62%,rgba(247,76,76,0.64) 34.72%,rgba(252,8,8,1.00) 61.14%,rgba(255,0,0,1.00) 100%);
+	background-image: -o-linear-gradient(90deg,rgba(255,255,255,0.00) 0%,rgba(249,199,199,0.33) 6.74%,rgba(244,159,159,0.47) 17.62%,rgba(247,76,76,0.64) 34.72%,rgba(252,8,8,1.00) 61.14%,rgba(255,0,0,1.00) 100%);
+	background-image: linear-gradient(0deg,rgba(255,255,255,0.00) 0%,rgba(249,199,199,0.33) 6.74%,rgba(244,159,159,0.47) 17.62%,rgba(247,76,76,0.64) 34.72%,rgba(252,8,8,1.00) 61.14%,rgba(255,0,0,1.00) 100%);
+	border-radius: 1px;
+	-webkit-box-shadow: 4px 3px 13px -4px;
+	box-shadow: 4px 3px 13px -4px;
+}
+.menu ul li
+{
+	cursor: pointer;
+	display: inline-table;
+	height: 44px;
+	width: 128px;
+	text-transform: capitalize;
+	list-style-position: inside;
+	padding-top: 2px;
+	padding-right: 2px;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	font-size: 15px;
+	text-align: center;
+	font-style: normal;
+	clear: both;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	
+}
+.menu ul li:hover{
+	display: inline-table;
+	height: 44px;
+	width: 128px;
+	text-transform: capitalize;
+	list-style-position: inside;
+	-webkit-box-shadow: inset 1px 2px 5px 2px;
+	box-shadow: inset 1px 2px 5px 2px;
+	background-image: -webkit-linear-gradient(84deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,1.00) 100%);
+	background-image: -moz-linear-gradient(84deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,1.00) 100%);
+	background-image: -o-linear-gradient(84deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,1.00) 100%);
+	background-image: linear-gradient(6deg,rgba(255,255,255,0.00) 0%,rgba(255,0,0,1.00) 100%);
+	
+}
+
+/* ~~ Este selector agrupado da espacio a las listas del área de .content ~~ */
+.content ul, .content ol {
+	padding: 0 15px 15px 40px; /* este relleno reproduce en espejo el relleno derecho de la regla de encabezados y de párrafo incluida más arriba. El relleno se ha colocado en la parte inferior para que el espacio existente entre otros elementos de la lista y a la izquierda cree la sangría. Estos pueden ajustarse como se desee. */
+}
+
+/* ~~ Los estilos de lista de navegación (pueden eliminarse si opta por usar un menú desplegable predefinido como el de Spry) ~~ */
+ul.nav {
+	list-style: none; /* esto elimina el marcador de lista */
+	border-top: 1px solid #666; /* esto crea el borde superior de los vínculos (los demás se sitúan usando un borde inferior en el LI) */
+	margin-bottom: 15px; /* esto crea el espacio entre la navegación en el contenido situado debajo */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* esto crea la separación de los botones  */
+}
+ul.nav a, ul.nav a:visited { /* al agrupar estos selectores, se asegurará de que los vínculos mantengan el aspecto de botón incluso después de haber sido visitados  */
+	padding: 5px 5px 5px 15px;
+	display: block; /* esto asigna propiedades de bloque al vínculo, lo que provoca que llene todo el LI que lo contiene. Esto provoca que toda el área reaccione a un clic de ratón. */
+	width: 160px;  /*esta anchura hace que se pueda hacer clic en todo el botón para IE6. Puede eliminarse si no es necesario proporcionar compatibilidad con IE6. Calcule la anchura adecuada restando el relleno de este vínculo de la anchura del contenedor de barra lateral. */
+	text-decoration: none;
+	background-color: #C6D580;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fondo y del texto tanto para usuarios que naveguen con ratón como para los que lo hagan con teclado */
+	background-color: #ADB96E;
+	color: #FFF;
+}
+
+/* ~~ El pie de página ~~ */
+footer {
+	padding: 10px 0;
+	background-color: #CCC49F;
+	position: relative;/* esto da a IE6 el parámetro hasLayout para borrar correctamente */
+	clear: both; /* esta propiedad de borrado fuerza a .container a conocer dónde terminan las columnas y a contenerlas */
+}
+
+/*Compatibilidad con HTML5: define nuevas etiquetas HTML5 como display:block para que los navegadores sepan cómo procesar las etiquetas correctamente. */
+header, section, footer, aside, article, figure,.content {
+	display: block;
+}
+
+
+
+
+option
+{
+	height: 30px;
+	border: 1px solid #333333;
+}
+
+.form
+{
+	width: 500px;
+	
+	float: left;
+	padding: 20px 10px 10px 20px;
+	border: 1px #fdeaeb solid;
+	margin-left: 25%;
+	display:block;
+}
+
+.form_row
+{
+	width: 425px;
+	float: left;
+	clear: both;
+	padding: 7px 0 7px 0;
+}
+
+label
+{
+	width: 100px;
+	float: left;
+	padding: 3px 15px 0 0;
+	color: #b52025;
+	text-align: right;
+	font-weight: bold;
+}
+
+.contact_form ul
+{
+	width: 750px;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.contact_form li
+{
+	width: 460px;
+	padding: 12px;
+	border-bottom: 1px solid #eee;
+	position: relative;
+}
+
+.contact_form label
+{
+	color: #555555;
+	display: inline-block;
+	float: left;
+	font-family: sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	margin-top: 3px;
+	padding: 3px;
+	width: 90px;
+}
+.contact_form input
+, .input_text
+{
+	height: 16px;
+	width: 220px;
+	padding: 5px 8px;
+	-webkit-box-shadow: 0px 0px;
+	box-shadow: 0px 0px;
+}
+
+.contact_form textarea
+{
+	padding: 8px;
+	width: 300px;
+}
+
+.contact_form button
+{
+	margin-left: 90px;
+	background: rgba(255,0,0,1);
+}
+
+/*----- estilos visuales de los elementos --------*/
+
+
+
+select
+{
+	border-radius: 8px;
+	color: rgba(10,10,10,1.00);
+	background-image: -webkit-linear-gradient(200deg,rgba(126,120,120,1.00) 0%,rgba(229,229,229,1.00) 94.82%,rgba(207,207,207,1.00) 100%,rgba(254,15,15,1.00) 100%,rgba(220,220,220,1.00) 100%);
+	background-image: -moz-linear-gradient(200deg,rgba(126,120,120,1.00) 0%,rgba(229,229,229,1.00) 94.82%,rgba(207,207,207,1.00) 100%,rgba(254,15,15,1.00) 100%,rgba(220,220,220,1.00) 100%);
+	background-image: -o-linear-gradient(200deg,rgba(126,120,120,1.00) 0%,rgba(229,229,229,1.00) 94.82%,rgba(207,207,207,1.00) 100%,rgba(254,15,15,1.00) 100%,rgba(220,220,220,1.00) 100%);
+	background-image: linear-gradient(250deg,rgba(126,120,120,1.00) 0%,rgba(229,229,229,1.00) 94.82%,rgba(207,207,207,1.00) 100%,rgba(254,15,15,1.00) 100%,rgba(220,220,220,1.00) 100%);
+	margin-right: 0px;
+	height: 21px;
+	text-transform: uppercase;
+	border-collapse: separate;
+	-webkit-box-shadow: 0px 0px;
+	box-shadow: 0px 0px;
+}
+
+input, .contact_form input, .contact_form textarea
+{
+	border: 1px solid #aaa;
+	box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+	border-radius: 2px;
+	color: #888;
+	font-size: 12px;
+	padding-right: 30px;
+	-moz-transition: padding .25s;
+	-webkit-transition: padding .25s;
+	-o-transition: padding .25s;
+	transition: padding .25s;
+	height:12px;
+
+}
+
+input, .contact_form input:focus, .contact_form textarea:focus
+{
+	background: #fff;
+	border: 1px solid #555;
+	box-shadow: 0 0 3px #aaa;
+	padding-right: 5px;
+}
+
+/* === Estilos de Validacion === */	
+
+input .contact_form input:required:valid, .contact_form textarea:required:valid,form .input_text:required:valid , input:required:valid{
+ box-shadow: 0 0 5px #5cd053;
+ border-color: #28921f;
+}
+input .contact_form input:focus:invalid, .contact_form textarea:focus:invalid ,form .input_text:focus:invalid,input:focus:invalid {
+ box-shadow: 0 0 5px #d45252;
+ border-color: #b03535
+}
+
+/* === Estilos del boton de Envio === */
+button.submit
+{
+	border: #333333 1px solid;
+	padding-top: 3px;
+	padding-right: 17px;
+	padding-left: 17px;
+	padding-bottom: 7px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	line-height: 1;
+	color: #444;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#bbb));
+	background-image: -moz-linear-gradient(0% 100% 90deg, #BBBBBB, #FFFFFF);
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+button.submit:hover
+{
+	opacity: .60;
+	cursor: pointer;
+	color: #F00;
+}
+
+button.submit:active
+{
+	border: 1px solid #222;
+	box-shadow: 0 0 10px 5px #444 inset;
+}
+
+
+input.newsletter_input
+{
+	background-color: #fdeaeb;
+	border: 1px #e2c7c8 solid;
+	width: 193px;
+	height: 18px;
+	padding: 4px;
+	float: left;
+}
+
+form #newsletter { padding: 10px 0 0 0; }
+
+input.newsletter_submit
+{
+	background-color: #b52025;
+	color: #FFFFFF;
+	text-align: center;
+	float: left;
+	padding: 4px 4px 3px 4px;
+	margin: 0 0 0 10px;
+	border: 1px #fdeaeb solid;
+	cursor: pointer;
+}
+
+.testbox
+{
+	padding: 20px 10px 5px 0;
+	margin: 0;
+	border-bottom: 1px #ededed solid;
+}
+
+.testbox p { font-style: italic; }
+/*----------------------slider footer--------------------*/
+
+/*-----------------------------footer------------------*/
+
+
